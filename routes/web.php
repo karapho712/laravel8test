@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/list', [ListController::class, 'index']);
+Route::get('/list-create', [ListController::class, 'create']);
+Route::post('/list-store', [ListController::class, 'store']);
+Route::get('/list-edit/{id}', [ListController::class, 'edit']);
+Route::put('/list-update/{id}', [ListController::class, 'update']);
+Route::delete('/list-delete/{id}', [ListController::class, 'destroy']);
